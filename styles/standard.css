@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    color: var(--standard-text-color);
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.d_none {
+    display: none;
+}
+
+/* Burger-Menu */
+#btn-bar1,
+#btn-bar2,
+#btn-bar3 {
+    width: 32px;
+    height: 4px;
+    margin: 6px;
+    background-color: var(--white-text);
+}
