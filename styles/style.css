@@ -25,7 +25,7 @@ footer {
 }
 
 main {
-    height: calc(100vh - 344px);
+    min-height: calc(100vh - 344px);
     background-color: var(--back-ground);
 }
 
@@ -58,4 +58,70 @@ main {
     color: var(--search-color);
     letter-spacing: 2px;
     font-family: "Caveat", cursive;
+}
+
+#pokemon-cards-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 32px;
+    gap: 16px;
+}
+
+#pokemon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--poke-green);
+    width: 240px;
+    border-radius: 20px;
+    border-color: transparent;
+    border: 2px solid var(--search-color);
+    padding: 8px;
+    color: var(--poke-white);
+    font-size: 24px;
+    font-weight: 600;
+
+    & img {
+        width: 164px;
+        height: auto;
+        aspect-ratio: 1/1;
+    }
+}
+
+#id-and-name-container {
+    margin-bottom: 8px;
+}
+
+#poke-name {
+    text-transform: capitalize;
+}
+
+#poke-type-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    & img {
+        width: 84px;
+        height: 24px;
+        margin-bottom: 8px;
+    }
+}
+
+#poke-stats-container {
+    padding-top: 8px;
+    font-size: 20px;
+    font-weight: 200;
+
+    & p {
+        text-transform: capitalize;
+    }
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    opacity: 0;
 }
