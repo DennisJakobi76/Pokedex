@@ -12,5 +12,40 @@
         <script src="./scripts/main.js" defer></script>
         <title>Pokedex</title>
     </head>
-    <body></body>
+    <body onload="getOnePokemon()">
+        <header>
+            <img
+                class="header-sign"
+                src="./assets/img/watchOutSign.png"
+                alt="Pokemon-Warnschild"
+            /><img
+                id="title-img"
+                src="./assets/img/PokemonTitleTransparent.png"
+                alt="Pokemon-Schriftzug"
+            /><img
+                class="header-sign"
+                src="./assets/img/watchOutSign.png"
+                alt="Pokemon-Warnschild"
+            />
+        </header>
+        <main>
+            <section id="search-bar-section">
+                <input
+                    type="text"
+                    id="search-bar"
+                    placeholder="SEARCH"
+                />
+            </section>
+            <div id="pokemon-container">
+                <div id="id-and-name-container">
+                    <span id="poke-id"></span>
+                    <span id="poke-name"></span>
+                </div>
+                <div id="poke-img-container"></div>
+                <div id="poke-stats-container"></div>
+            </div>
+        </main>
+
+        <footer></footer>
+    </body>
 </html>

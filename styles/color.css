@@ -1,13 +1,12 @@
 :root {
-    /* Beispiele */
-    --standard-text: black;
-    --standard-orange: rgba(255, 128, 0);
-    --grey-text: rgba(135, 134, 133);
-    --category-bg: rgba(247, 246, 241);
-    --category-text: rgba(124, 125, 126);
-    --border-color: rgba(228, 228, 228);
-    --basket-blue: rgba(0, 105, 218);
-    --white-text: rgba(255, 255, 255);
-    --dishes-hover-bg: rgba(254, 229, 203);
-    --basket-side-shadow: rgba(228, 228, 228, 0.4);
+    --poke-blue: blue;
+    --poke-brown: brown;
+    --poke-yellow: yellow;
+    --poke-gray: gray;
+    --poke-green: green;
+    --poke-pink: pink;
+    --poke-red: red;
+    --poke-black: black;
+    --poke-violet: violet;
+    --poke-white: white;
 }

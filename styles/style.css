@@ -1,0 +1,36 @@
+header {
+    height: 264px;
+    background-color: var(--poke-red);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.header-sign {
+    width: 128px;
+    height: auto;
+    aspect-ratio: 1/1;
+}
+
+#title-img {
+    width: 640px;
+    height: auto;
+}
+
+footer {
+    background-color: var(--poke-red);
+    height: 80px;
+}
+
+main {
+    height: calc(100vh - 344px);
+}
+
+#search-bar-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
