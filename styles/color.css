@@ -3,7 +3,7 @@
     --poke-brown: brown;
     --poke-yellow: yellow;
     --poke-gray: gray;
-    --poke-green: rgb(30, 224, 30);
+    --poke-green: green;
     --poke-pink: pink;
     --poke-red: red;
     --poke-black: black;
@@ -11,4 +11,57 @@
     --poke-white: white;
     --back-ground: darkslategray;
     --search-color: #d6c887;
+    --preview-bg: rgba(8, 33, 41, 0.3);
+}
+
+.water,
+.dragon {
+    background-color: var(--poke-blue);
+}
+
+.ground {
+    background-color: var(--poke-brown);
+}
+
+.electric {
+    background-color: var(--poke-yellow);
+}
+
+.rock,
+.steel,
+.fighting {
+    background-color: var(--poke-gray);
+}
+
+.grass,
+.bug {
+    background-color: var(--poke-green);
+}
+
+.psychic,
+.fairy {
+    background-color: var(--poke-pink);
+}
+
+.fire {
+    background-color: var(--poke-red);
+}
+
+.dark,
+.ghost {
+    background-color: var(--poke-black);
+}
+
+.poison {
+    background-color: var(--poke-violet);
+}
+
+.flying,
+.normal,
+.ice {
+    background-color: var(--poke-white);
+}
+
+.def-bg {
+    background-color: #d6c887;
 }

@@ -60,6 +60,40 @@ main {
     font-family: "Caveat", cursive;
 }
 
+#search-info {
+    color: var(--poke-red);
+}
+
+#load-more-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16px;
+
+    & button {
+        width: 350px;
+        height: 40px;
+        outline: none;
+        margin: 1.5rem;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid var(--search-color);
+        border-top: 2px solid var(--search-color);
+        border-radius: 50px;
+        line-height: 1.2rem;
+        font-size: 1.4rem;
+        text-align: center;
+        color: var(--search-color);
+        letter-spacing: 2px;
+        font-family: "Caveat", cursive;
+    }
+
+    & button:hover {
+        cursor: pointer;
+        text-shadow: 4px 4px 4px #222;
+    }
+}
+
 #pokemon-cards-section {
     display: flex;
     align-items: center;
@@ -69,37 +103,54 @@ main {
     gap: 16px;
 }
 
-#pokemon-container {
+.pokemon-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--poke-green);
+    background-color: var(--preview-bg);
     width: 240px;
     border-radius: 20px;
     border-color: transparent;
     border: 2px solid var(--search-color);
-    padding: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     color: var(--poke-white);
     font-size: 24px;
     font-weight: 600;
 
-    & img {
+    & .poke-img {
         width: 164px;
         height: auto;
         aspect-ratio: 1/1;
+        filter: drop-shadow(8px 8px 8px #222);
+    }
+
+    & .poke-img:hover {
+        cursor: pointer;
+        filter: drop-shadow(16px 16px 16px #222);
+        scale: 1.01;
     }
 }
 
-#id-and-name-container {
+.poke-img-container {
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.id-and-name-container {
     margin-bottom: 8px;
 }
 
-#poke-name {
+.poke-name {
     text-transform: capitalize;
 }
 
-#poke-type-container {
+.poke-type-container {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -10,9 +10,10 @@
         <link rel="stylesheet" href="./styles/color.css"/>
         <link rel="stylesheet" href="./styles/style.css"/>
         <script src="./scripts/main.js" defer></script>
+        <script src="./scripts/template.js" defer></script>
         <title>Pokedex</title>
     </head>
-    <body onload="getOnePokemon()">
+    <body onload="getPokemons()">
         <header>
             <img
                 class="header-sign"
@@ -34,10 +35,16 @@
                     type="text"
                     id="search-bar"
                     placeholder="Search your Pokemon"
+                    oninput="searchPokemons()"
                 />
+                <span
+                    id="search-info"
+                    class="d_none"
+                    >Type at least 3 characters</span
+                >
             </section>
             <section id="pokemon-cards-section">
-                <div id="pokemon-container">
+                <!-- <div id="pokemon-container">
                     <div id="id-and-name-container">
                         <span id="poke-id"></span>
                         <span id="poke-name"></span>
@@ -45,7 +52,15 @@
                     <div id="poke-img-container"></div>
                     <div id="poke-type-container"></div>
                     <div id="poke-stats-container"></div>
-                </div>
+                </div> -->
+            </section>
+            <section id="load-more-section">
+                <button
+                    id="load-more-btn"
+                    onclick="loadMorePokemon()"
+                >
+                    Load more Pokemon
+                </button>
             </section>
         </main>
 
