@@ -12,6 +12,7 @@
     --back-ground: darkslategray;
     --search-color: #d6c887;
     --preview-bg: rgba(8, 33, 41, 0.3);
+    --overlay-bg: rgba(47, 79, 79, 0.8);
 }
 
 .water,

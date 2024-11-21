@@ -5,7 +5,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/x-icon"/>
-        <link rel="stylesheet" href="./styles/standard.css"/>
         <link rel="stylesheet" href="./styles/fonts.css"/>
         <link rel="stylesheet" href="./styles/color.css"/>
         <link rel="stylesheet" href="./styles/style.css"/>
@@ -30,7 +29,7 @@
             />
         </header>
         <main>
-            <section id="search-bar-section">
+            <div id="search-bar-section">
                 <input
                     type="text"
                     id="search-bar"
@@ -42,26 +41,21 @@
                     class="d_none"
                     >Type at least 3 characters</span
                 >
-            </section>
-            <section id="pokemon-cards-section">
-                <!-- <div id="pokemon-container">
-                    <div id="id-and-name-container">
-                        <span id="poke-id"></span>
-                        <span id="poke-name"></span>
-                    </div>
-                    <div id="poke-img-container"></div>
-                    <div id="poke-type-container"></div>
-                    <div id="poke-stats-container"></div>
-                </div> -->
-            </section>
-            <section id="load-more-section">
+            </div>
+            <div id="pokemon-cards-section">
+                <div
+                    id="overlay"
+                    class="d_none"
+                ></div>
+            </div>
+            <div id="load-more-section">
                 <button
                     id="load-more-btn"
                     onclick="loadMorePokemon()"
                 >
                     Load more Pokemon
                 </button>
-            </section>
+            </div>
         </main>
 
         <footer></footer>

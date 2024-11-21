@@ -4,6 +4,7 @@ const IMG_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprite
 const POKEMON_CARDS_SECTION = document.getElementById("pokemon-cards-section");
 const SEARCH_INPUT = document.getElementById("search-bar");
 const SEARCH_INFO = document.getElementById("search-info");
+const DETAILS_OVERLAY = document.getElementById("overlay");
 
 let pokemonTypes = [];
 let loadedPokemons = [];
@@ -146,7 +147,7 @@ async function searchPokemons() {
 
 function getPokemonsByName() {
     searchedPokemons = allPokemons;
-    searchedPokemons = searchedPokemons.filter((p) => p.name.includes(SEARCH_INPUT.value));
+    searchedPokemons = searchedPokemons.filter((p) => p.name.includes(SEARCH_INPUT.value.toLowerCase()));
     POKEMON_CARDS_SECTION.innerHTML = "";
     console.log(searchedPokemons);
 
@@ -218,4 +219,12 @@ async function getPokemons(url = "") {
 function loadMorePokemon() {
     let nextUrl = currentResult.next;
     getPokemons(nextUrl);
+}
+
+function openDetails(pokeId) {
+    DETAILS_OVERLAY.classList.toggle("d_none");
+}
+
+function addDNone() {
+    DETAILS_OVERLAY.classList.add("d_none");
 }
