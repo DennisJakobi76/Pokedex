@@ -13,6 +13,8 @@
     --search-color: #d6c887;
     --preview-bg: rgba(8, 33, 41, 0.3);
     --overlay-bg: rgba(47, 79, 79, 0.8);
+    --info-btn-bg: rgba(18, 71, 88);
+    --info-detail-bg: rgba(13, 50, 64);
 }
 
 .water,
