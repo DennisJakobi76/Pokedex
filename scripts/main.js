@@ -238,6 +238,10 @@ async function openDetails(pokeName) {
 }
 
 async function openMainDetails(event, pokeName) {
+    if (event != undefined) {
+        event.stopPropagation();
+    }
+
     let clickedPokemon = {};
     let abilities = [];
     let currentId = "";
@@ -264,11 +268,10 @@ async function openMainDetails(event, pokeName) {
         abilities.push(currentPokemon.abilities[i].ability.name);
         tdAbilities.innerText += ` ${abilities[i]};`;
     }
-
-    event.stopPropagation();
 }
 
 async function openStatsDetails(event, pokeName) {
+    event.stopPropagation();
     let clickedPokemon = {};
     clickedPokemon = await allPokemons.find(({ name }) => name === pokeName);
     currentPokemon = await getOnePokemon(clickedPokemon.url);
@@ -279,11 +282,10 @@ async function openStatsDetails(event, pokeName) {
         detailContainer.innerHTML += `<p>${currentPokemon.stats[i].stat.name}</p>`;
         detailContainer.innerHTML += `<input type="range" min="0" max="100" value="${currentPokemon.stats[i].base_stat}" step="0"/>`;
     }
-
-    event.stopPropagation();
 }
 
 async function openEvoDetails(event, pokeName) {
+    event.stopPropagation();
     let detailContainer = document.getElementById(`poke-info-detail-container(${pokeName})`);
     let clickedPokemon = {};
     let evolutionPokemonNames = [];
@@ -323,8 +325,6 @@ async function openEvoDetails(event, pokeName) {
     for (let i = 0; i < evolutionPokemonNames.length; i++) {
         detailContainer.innerHTML += renderEvoChain(evolutionImgUrls[i], i);
     }
-
-    event.stopPropagation();
 }
 
 function addDNone() {
