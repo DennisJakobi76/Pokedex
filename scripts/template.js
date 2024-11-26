@@ -56,8 +56,8 @@ function renderDetailsCard(pokeName) {
                             class="poke-info-detail-container"
                         ></div>
                         <div class="pokemon-arrow-nav-container">
-                            <button class="pokemon-nav-arrow">&lt;</button>
-                            <button class="pokemon-nav-arrow">&gt;</button>
+                            <button class="pokemon-nav-arrow" onclick="getPreviousPokemon(event,'${pokeName}')">&lt;</button>
+                            <button class="pokemon-nav-arrow" onclick="getNextPokemon(event,'${pokeName}')">&gt;</button>
                         </div>
                     </div>`;
 }

@@ -293,7 +293,6 @@ async function openEvoDetails(event, pokeName) {
     let pokemonForImgUrl = {};
     clickedPokemon = await allPokemons.find(({ name }) => name === pokeName);
     currentPokemon = await getOnePokemon(clickedPokemon.url);
-    let pokeId = await extractPokemonId(clickedPokemon.url);
     let species = await fetch(currentPokemon.species.url);
     let speciesAsJson = await species.json();
     let evoChain = await fetch(speciesAsJson.evolution_chain.url);
@@ -325,6 +324,34 @@ async function openEvoDetails(event, pokeName) {
     for (let i = 0; i < evolutionPokemonNames.length; i++) {
         detailContainer.innerHTML += renderEvoChain(evolutionImgUrls[i], i);
     }
+}
+
+async function getNextPokemon(event, pokeName) {
+    event.stopPropagation();
+    let currentId = await allPokemons.map((pokemonObj) => pokemonObj.name).indexOf(pokeName);
+    let nextId = currentId + 1;
+
+    if (nextId == allPokemons.length) {
+        nextId = 0;
+    }
+
+    let nextPokeName = allPokemons[nextId].name;
+
+    openDetails(nextPokeName);
+}
+
+async function getPreviousPokemon(event, pokeName) {
+    event.stopPropagation();
+    let currentId = await allPokemons.map((pokemonObj) => pokemonObj.name).indexOf(pokeName);
+    let nextId = currentId - 1;
+
+    if (nextId <= 0) {
+        nextId = allPokemons.length - 1;
+    }
+
+    let nextPokeName = allPokemons[nextId].name;
+
+    openDetails(nextPokeName);
 }
 
 function addDNone() {
