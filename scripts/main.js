@@ -342,6 +342,7 @@ async function getPreviousPokemon(event, pokeName) {
 
 function showLoadingSpinner() {
     document.getElementById("loading-spinner-container").classList.remove("d_none");
+    window.scrollTo(0, 0);
 }
 
 function hideLoadingSpinner() {
