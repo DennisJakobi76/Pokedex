@@ -192,6 +192,8 @@ async function drawPreviewCards(array) {
 }
 
 async function getPokemons(url = "") {
+    showLoadingSpinner();
+
     if (firstLoad) {
         getAllPokemons();
     }
@@ -205,6 +207,8 @@ async function getPokemons(url = "") {
     currentResult = jsonPokemons;
 
     drawPreviewCards(jsonPokemons);
+
+    // hideLoadingSpinner();
 }
 
 function loadMorePokemon() {
@@ -328,7 +332,7 @@ async function openEvoDetails(event, pokeName) {
 
 async function getNextPokemon(event, pokeName) {
     event.stopPropagation();
-    let currentId = await allPokemons.map((pokemonObj) => pokemonObj.name).indexOf(pokeName);
+    let currentId = allPokemons.map((pokemonObj) => pokemonObj.name).indexOf(pokeName);
     let nextId = currentId + 1;
 
     if (nextId == allPokemons.length) {
@@ -342,7 +346,7 @@ async function getNextPokemon(event, pokeName) {
 
 async function getPreviousPokemon(event, pokeName) {
     event.stopPropagation();
-    let currentId = await allPokemons.map((pokemonObj) => pokemonObj.name).indexOf(pokeName);
+    let currentId = allPokemons.map((pokemonObj) => pokemonObj.name).indexOf(pokeName);
     let nextId = currentId - 1;
 
     if (nextId <= 0) {
@@ -352,6 +356,14 @@ async function getPreviousPokemon(event, pokeName) {
     let nextPokeName = allPokemons[nextId].name;
 
     openDetails(nextPokeName);
+}
+
+function showLoadingSpinner() {
+    document.getElementById("loading-spinner-container").classList.remove("d_none");
+}
+
+function hideLoadingSpinner() {
+    document.getElementById("loading-spinner-container").classList.add("d_none");
 }
 
 function addDNone() {
