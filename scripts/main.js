@@ -142,7 +142,7 @@ function getPokemonsByName() {
     searchedPokemons = searchedPokemons.filter((p) => p.name.includes(SEARCH_INPUT.value.toLowerCase()));
     POKEMON_CARDS_SECTION.innerHTML = "";
 
-    drawSearchedCards(searchedPokemons);
+    drawPreviewCards(searchedPokemons);
 }
 
 async function getAllPokemons() {
@@ -155,30 +155,12 @@ async function getAllPokemons() {
     firstLoad = false;
 }
 
-async function drawSearchedCards(array) {
+async function drawPreviewCards(array) {
     for (let i = 0; i < array.length; i++) {
         loadedPokemons.push(array[i]);
         currentPokemon = await getOnePokemon(array[i].url);
         pokemonId = await extractPokemonId(array[i].url);
         POKEMON_CARDS_SECTION.innerHTML += renderPreviewCard(array[i], pokemonId, getCorrectImgUrl(pokemonId));
-        getTypesOfPokemon(currentPokemon);
-        let pokeImgContainer = document.getElementById(`poke-img-container${pokemonId - 1}`);
-        addClassToElement(pokeImgContainer, setBackgroundColor(pokemonTypes[0]));
-
-        let pokeTypeContainer = document.getElementById(`poke-type-container${pokemonId - 1}`);
-
-        for (let j = 0; j < pokemonTypes.length; j++) {
-            pokeTypeContainer.innerHTML += renderTypes(pokemonTypes[j]);
-        }
-    }
-}
-
-async function drawPreviewCards(array) {
-    for (let i = 0; i < array.results.length; i++) {
-        loadedPokemons.push(array.results[i]);
-        currentPokemon = await getOnePokemon(array.results[i].url);
-        pokemonId = await extractPokemonId(array.results[i].url);
-        POKEMON_CARDS_SECTION.innerHTML += renderPreviewCard(array.results[i], pokemonId, getCorrectImgUrl(pokemonId));
         getTypesOfPokemon(currentPokemon);
         let pokeImgContainer = document.getElementById(`poke-img-container${pokemonId - 1}`);
         addClassToElement(pokeImgContainer, setBackgroundColor(pokemonTypes[0]));
@@ -206,9 +188,9 @@ async function getPokemons(url = "") {
     let jsonPokemons = await pokemons.json();
     currentResult = jsonPokemons;
 
-    drawPreviewCards(jsonPokemons);
+    drawPreviewCards(jsonPokemons.results);
 
-    // hideLoadingSpinner();
+    hideLoadingSpinner();
 }
 
 function loadMorePokemon() {
@@ -363,7 +345,9 @@ function showLoadingSpinner() {
 }
 
 function hideLoadingSpinner() {
-    document.getElementById("loading-spinner-container").classList.add("d_none");
+    setTimeout(function () {
+        document.getElementById("loading-spinner-container").classList.add("d_none");
+    }, 1200);
 }
 
 function addDNone() {

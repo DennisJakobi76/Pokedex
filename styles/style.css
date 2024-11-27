@@ -314,7 +314,6 @@ input[type="range"]::-webkit-slider-thumb {
     margin-top: calc(80vh / 2);
     margin-left: calc(80vw / 2);
     z-index: 2;
-
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
