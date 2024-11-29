@@ -7,7 +7,6 @@ const SEARCH_INFO = document.getElementById("search-info");
 const LOADING_SPINNER_CONTAINER = document.getElementById("loading-spinner-container");
 const BODY = document.getElementById("body");
 const OVERLAY = document.getElementById("overlay");
-const TD_ABILITIES = document.getElementById("main-abilities");
 
 let pokemonTypes = [];
 let loadedPokemons = [];
@@ -45,71 +44,28 @@ function getCorrectImgUrl(pokemonId) {
 }
 
 function setBackgroundColor(typeNumber) {
-    let number = parseInt(typeNumber);
-    let bGClassName = "";
-    switch (number) {
-        case 1:
-            bGClassName = "normal";
-            break;
-        case 2:
-            bGClassName = "fighting";
-            break;
-        case 3:
-            bGClassName = "flying";
-            break;
-        case 4:
-            bGClassName = "poison";
-            break;
-        case 5:
-            bGClassName = "ground";
-            break;
-        case 6:
-            bGClassName = "rock";
-            break;
-        case 7:
-            bGClassName = "bug";
-            break;
-        case 8:
-            bGClassName = "ghost";
-            break;
-        case 9:
-            bGClassName = "steel";
-            break;
-        case 10:
-            bGClassName = "fire";
-            break;
-        case 11:
-            bGClassName = "water";
-            break;
-        case 12:
-            bGClassName = "grass";
-            break;
-        case 13:
-            bGClassName = "electric";
-            break;
-        case 14:
-            bGClassName = "psychic";
-            break;
-        case 15:
-            bGClassName = "ice";
-            break;
-        case 16:
-            bGClassName = "dragon";
-            break;
-        case 17:
-            bGClassName = "dark";
-            break;
-        case 18:
-            bGClassName = "fairy";
-            break;
-        case 19:
-            bGClassName = "stellar";
-            break;
-        default:
-            bGClassName = "def-bg";
-            break;
-    }
-    return bGClassName;
+    const typeToClassMap = {
+        1: "normal",
+        2: "fighting",
+        3: "flying",
+        4: "poison",
+        5: "ground",
+        6: "rock",
+        7: "bug",
+        8: "ghost",
+        9: "steel",
+        10: "fire",
+        11: "water",
+        12: "grass",
+        13: "electric",
+        14: "psychic",
+        15: "ice",
+        16: "dragon",
+        17: "dark",
+        18: "fairy",
+        19: "stellar",
+    };
+    return typeToClassMap[parseInt(typeNumber)] || "def-bg";
 }
 
 function addClassToElement(element, className) {
@@ -226,11 +182,11 @@ async function openMainDetails(event, pokeName) {
     let weightInKilograms = (weight / 10).toFixed(2).toLocaleString("de-DE") + " kg";
     let experience = currentPokemon.base_experience;
     drawMainInfos(detailContainer);
-    TD_ABILITIES.innerText = `: `;
+    document.getElementById("main-abilities").innerText = `: `;
     document.getElementById("main-height").innerText = `: ${heightInMeters}`;
     document.getElementById("main-weight").innerText = `: ${weightInKilograms}`;
     document.getElementById("main-exp").innerText = `: ${experience}`;
-    drawAbilities(currentPokemon.abilities, abilities, tdAbilities);
+    drawAbilities(currentPokemon.abilities, abilities, document.getElementById("main-abilities"));
 }
 
 async function openStatsDetails(event, pokeName) {
