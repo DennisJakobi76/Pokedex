@@ -315,12 +315,16 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #loading-spinner-img {
+    position: absolute;
     width: 240px;
     height: 240px;
     aspect-ratio: 1/1;
-    margin-top: calc(80vh / 2);
-    margin-left: calc(80vw / 2);
-    z-index: 2;
+    object-fit: cover;
+    object-position: center;
+    top: 15%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
