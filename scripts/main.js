@@ -7,6 +7,27 @@ const SEARCH_INFO = document.getElementById("search-info");
 const LOADING_SPINNER_CONTAINER = document.getElementById("loading-spinner-container");
 const BODY = document.getElementById("body");
 const OVERLAY = document.getElementById("overlay");
+const TYPE_TO_CLASS_MAP = {
+    1: "normal",
+    2: "fighting",
+    3: "flying",
+    4: "poison",
+    5: "ground",
+    6: "rock",
+    7: "bug",
+    8: "ghost",
+    9: "steel",
+    10: "fire",
+    11: "water",
+    12: "grass",
+    13: "electric",
+    14: "psychic",
+    15: "ice",
+    16: "dragon",
+    17: "dark",
+    18: "fairy",
+    19: "stellar",
+};
 
 let pokemonTypes = [];
 let loadedPokemons = [];
@@ -44,28 +65,7 @@ function getCorrectImgUrl(pokemonId) {
 }
 
 function setBackgroundColor(typeNumber) {
-    const typeToClassMap = {
-        1: "normal",
-        2: "fighting",
-        3: "flying",
-        4: "poison",
-        5: "ground",
-        6: "rock",
-        7: "bug",
-        8: "ghost",
-        9: "steel",
-        10: "fire",
-        11: "water",
-        12: "grass",
-        13: "electric",
-        14: "psychic",
-        15: "ice",
-        16: "dragon",
-        17: "dark",
-        18: "fairy",
-        19: "stellar",
-    };
-    return typeToClassMap[parseInt(typeNumber)] || "def-bg";
+    return TYPE_TO_CLASS_MAP[parseInt(typeNumber)] || "def-bg";
 }
 
 function addClassToElement(element, className) {
