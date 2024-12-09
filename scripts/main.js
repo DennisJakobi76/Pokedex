@@ -159,6 +159,7 @@ async function openDetails(pokeName) {
     clickedPokemon = await findPokemonInArray(allPokemons, pokeName);
     currentPokeId = await extractPokemonId(clickedPokemon.url);
     currentPokemon = await getOnePokemon(clickedPokemon.url);
+    helperArray = [];
     helperArray.push(clickedPokemon);
     OVERLAY.classList.remove("d_none");
     OVERLAY.innerHTML = renderDetailsCard(pokeName);
